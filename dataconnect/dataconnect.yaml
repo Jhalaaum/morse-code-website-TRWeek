@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "morse-code-website-TRWeek"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "morse-code-website-TRWeek-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

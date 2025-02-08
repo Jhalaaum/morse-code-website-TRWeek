@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        .morse {
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="morse-message"></p>
+    
+    <!-- Hint Button -->
+    <button id="hint-button">Show Hint</button>
+    <p id="hint-message" style="display: none;"></p>
+
+    <script>
+        // Morse code dictionary
+        const morseCode = {
+            "A": ".-", "B": "-...", "C": "-.-.", "D": "-..", "E": ".", "F": "..-.",
+            "G": "--.", "H": "....", "I": "..", "J": ".---", "K": "-.-", "L": ".-..",
+            "M": "--", "N": "-.", "O": "---", "P": ".--.", "Q": "--.-", "R": ".-.",
+            "S": "...", "T": "-", "U": "..-", "V": "...-", "W": ".--", "X": "-..-",
+            "Y": "-.--", "Z": "--..", "1": ".----", "2": "..---", "3": "...--", "4": "....-",
+            "5": ".....", "6": "-....", "7": "--...", "8": "---..", "9": "----.", "0": "-----",
+            ".": ".-.-.-", ",": "--..--", "?": "..--..", "'": ".----.", "/": "-..-.", "(": "-.--.",
+            ")": "-.--.-", "&": ".-...", ":": "---...", ";": "-.-.-.", "=": "-...-", "+": ".-.-.",
+            "-": "-....-", "_": "..--.-", "$": "...-..-", "!": "-.-.--", " ": "/"
+        };
+
+        // Function to convert a message to Morse code
+        function textToMorse(text) {
+            return text.toUpperCase().split('').map(char => morseCode[char] || ' ').join(' ');
+        }
+
+        // The message to convert
+        const message = "The final clue lies outside the Cricket/Rugby/Softball/Scouts stores";
+        const morseMessage = textToMorse(message);
+
+        // Display the Morse code message
+        document.getElementById("morse-message").textContent = morseMessage;
+
+        // Hint message with bolded morse code
+        const hintMessage = "The hint is in re<span class='morse'>" + "morse" + "</span>"+"ful";
+
+        // When the button is clicked, show the hint
+        document.getElementById("hint-button").addEventListener("click", function() {
+            document.getElementById("hint-message").style.display = "block";
+            document.getElementById("hint-message").innerHTML = hintMessage;
+        });
+    </script>
+</body>
+</html>

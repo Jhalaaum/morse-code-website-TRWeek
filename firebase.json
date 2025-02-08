@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "morse-code-trweek-bd04c",
+    "public": "/Users/jhala/Documents/GitHub/morse-code-website-TRWeek/public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
